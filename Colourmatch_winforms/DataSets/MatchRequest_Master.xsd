@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MatchRequest_Master" targetNamespace="http://tempuri.org/MatchRequest_Master.xsd" xmlns:mstns="http://tempuri.org/MatchRequest_Master.xsd" xmlns="http://tempuri.org/MatchRequest_Master.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="postgresDB_ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="postgresDB_ConnectionString (Settings)" PropertyReference="ApplicationSettings.Colourmatch_winforms.Properties.Settings.GlobalReference.Default.postgresDB_ConnectionString" Provider="System.Data.Odbc" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.Colourmatch_winforms.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MatchRequest_MasterTableAdapter" GeneratorDataComponentClassName="MatchRequest_MasterTableAdapter" Name="MatchRequest_Master" UserDataComponentName="MatchRequest_MasterTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM (SELECT * FROM MatchRequest_sales) A LEFT JOIN (SELECT * FROM MatchRequest_Purchasing) B ON A.[Match No] = B.[Match No] </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Match No" DataSetColumn="Match No" />
+              <Mapping SourceColumn="Match Request No" DataSetColumn="Match Request No" />
+              <Mapping SourceColumn="Match Stroke No" DataSetColumn="Match Stroke No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Date Required" DataSetColumn="Date Required" />
+              <Mapping SourceColumn="Sales Contact" DataSetColumn="Sales Contact" />
+              <Mapping SourceColumn="Customer" DataSetColumn="Customer" />
+              <Mapping SourceColumn="Customer Contact" DataSetColumn="Customer Contact" />
+              <Mapping SourceColumn="Project Reference" DataSetColumn="Project Reference" />
+              <Mapping SourceColumn="Process" DataSetColumn="Process" />
+              <Mapping SourceColumn="Moulding Material" DataSetColumn="Moulding Material" />
+              <Mapping SourceColumn="Colour" DataSetColumn="Colour" />
+              <Mapping SourceColumn="Colour Prefix One" DataSetColumn="Colour Prefix One" />
+              <Mapping SourceColumn="Colour Prefix Two" DataSetColumn="Colour Prefix Two" />
+              <Mapping SourceColumn="Light Source" DataSetColumn="Light Source" />
+              <Mapping SourceColumn="Plaques" DataSetColumn="Plaques" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+              <Mapping SourceColumn="Colour Target" DataSetColumn="Colour Target" />
+              <Mapping SourceColumn="Pellet Size" DataSetColumn="Pellet Size" />
+              <Mapping SourceColumn="Heat Stability" DataSetColumn="Heat Stability" />
+              <Mapping SourceColumn="Sample Quantity" DataSetColumn="Sample Quantity" />
+              <Mapping SourceColumn="Light Fastness" DataSetColumn="Light Fastness" />
+              <Mapping SourceColumn="Masterbatch Ref One" DataSetColumn="Masterbatch Ref One" />
+              <Mapping SourceColumn="Masterbatch Ref Two" DataSetColumn="Masterbatch Ref Two" />
+              <Mapping SourceColumn="Let Down Rate " DataSetColumn="Let Down Rate " />
+              <Mapping SourceColumn="Let Down Rate Received One" DataSetColumn="Let Down Rate Received One" />
+              <Mapping SourceColumn="Let Down Rate Received Two" DataSetColumn="Let Down Rate Received Two" />
+              <Mapping SourceColumn="Light Fastness Received " DataSetColumn="Light Fastness Received " />
+              <Mapping SourceColumn="Heat Stability Received" DataSetColumn="Heat Stability Received" />
+              <Mapping SourceColumn="Date Received One" DataSetColumn="Date Received One" />
+              <Mapping SourceColumn="Date Received Two" DataSetColumn="Date Received Two" />
+              <Mapping SourceColumn="Match Status One" DataSetColumn="Match Status One" />
+              <Mapping SourceColumn="Match Status Two" DataSetColumn="Match Status Two" />
+              <Mapping SourceColumn="Purchasing Notes One" DataSetColumn="Purchasing Notes One" />
+              <Mapping SourceColumn="Purchasing Notes Two" DataSetColumn="Purchasing Notes Two" />
+              <Mapping SourceColumn="Additional Notes One" DataSetColumn="Additional Notes One" />
+              <Mapping SourceColumn="Additional Notes Two" DataSetColumn="Additional Notes Two" />
+              <Mapping SourceColumn="Multiple Suppliers" DataSetColumn="Multiple Suppliers" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MatchRequest_Master" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="MatchRequest_Master" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MatchRequest_Master">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MatchRequest_Master" msprop:Generator_RowClassName="MatchRequest_MasterRow" msprop:Generator_RowEvHandlerName="MatchRequest_MasterRowChangeEventHandler" msprop:Generator_RowDeletedName="MatchRequest_MasterRowDeleted" msprop:Generator_RowDeletingName="MatchRequest_MasterRowDeleting" msprop:Generator_RowEvArgName="MatchRequest_MasterRowChangeEvent" msprop:Generator_TablePropName="_MatchRequest_Master" msprop:Generator_RowChangedName="MatchRequest_MasterRowChanged" msprop:Generator_UserTableName="MatchRequest_Master" msprop:Generator_RowChangingName="MatchRequest_MasterRowChanging" msprop:Generator_TableClassName="MatchRequest_MasterDataTable" msprop:Generator_TableVarName="tableMatchRequest_Master">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Match_x0020_No" msprop:Generator_UserColumnName="Match No" msprop:Generator_ColumnPropNameInTable="Match_NoColumn" msprop:Generator_ColumnPropNameInRow="Match_No" msprop:Generator_ColumnVarNameInTable="columnMatch_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Match_x0020_Request_x0020_No" msprop:Generator_UserColumnName="Match Request No" msprop:Generator_ColumnPropNameInTable="Match_Request_NoColumn" msprop:Generator_ColumnPropNameInRow="Match_Request_No" msprop:Generator_ColumnVarNameInTable="columnMatch_Request_No" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Match_x0020_Stroke_x0020_No" msprop:Generator_UserColumnName="Match Stroke No" msprop:Generator_ColumnPropNameInTable="Match_Stroke_NoColumn" msprop:Generator_ColumnPropNameInRow="Match_Stroke_No" msprop:Generator_ColumnVarNameInTable="columnMatch_Stroke_No" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnVarNameInTable="columnDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Date_x0020_Required" msprop:Generator_UserColumnName="Date Required" msprop:Generator_ColumnPropNameInTable="Date_RequiredColumn" msprop:Generator_ColumnPropNameInRow="Date_Required" msprop:Generator_ColumnVarNameInTable="columnDate_Required" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Sales_x0020_Contact" msprop:Generator_UserColumnName="Sales Contact" msprop:Generator_ColumnPropNameInTable="Sales_ContactColumn" msprop:Generator_ColumnPropNameInRow="Sales_Contact" msprop:Generator_ColumnVarNameInTable="columnSales_Contact" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer" msprop:Generator_UserColumnName="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Contact" msprop:Generator_UserColumnName="Customer Contact" msprop:Generator_ColumnPropNameInTable="Customer_ContactColumn" msprop:Generator_ColumnPropNameInRow="Customer_Contact" msprop:Generator_ColumnVarNameInTable="columnCustomer_Contact" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project_x0020_Reference" msprop:Generator_UserColumnName="Project Reference" msprop:Generator_ColumnPropNameInTable="Project_ReferenceColumn" msprop:Generator_ColumnPropNameInRow="Project_Reference" msprop:Generator_ColumnVarNameInTable="columnProject_Reference" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Process" msprop:Generator_UserColumnName="Process" msprop:Generator_ColumnPropNameInTable="ProcessColumn" msprop:Generator_ColumnPropNameInRow="Process" msprop:Generator_ColumnVarNameInTable="columnProcess" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Moulding_x0020_Material" msprop:Generator_UserColumnName="Moulding Material" msprop:Generator_ColumnPropNameInTable="Moulding_MaterialColumn" msprop:Generator_ColumnPropNameInRow="Moulding_Material" msprop:Generator_ColumnVarNameInTable="columnMoulding_Material" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Colour" msprop:Generator_UserColumnName="Colour" msprop:Generator_ColumnPropNameInTable="ColourColumn" msprop:Generator_ColumnPropNameInRow="Colour" msprop:Generator_ColumnVarNameInTable="columnColour" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Colour_x0020_Prefix_x0020_One" msprop:Generator_UserColumnName="Colour Prefix One" msprop:Generator_ColumnPropNameInTable="Colour_Prefix_OneColumn" msprop:Generator_ColumnPropNameInRow="Colour_Prefix_One" msprop:Generator_ColumnVarNameInTable="columnColour_Prefix_One" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Colour_x0020_Prefix_x0020_Two" msprop:Generator_UserColumnName="Colour Prefix Two" msprop:Generator_ColumnPropNameInTable="Colour_Prefix_TwoColumn" msprop:Generator_ColumnPropNameInRow="Colour_Prefix_Two" msprop:Generator_ColumnVarNameInTable="columnColour_Prefix_Two" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Light_x0020_Source" msprop:Generator_UserColumnName="Light Source" msprop:Generator_ColumnPropNameInTable="Light_SourceColumn" msprop:Generator_ColumnPropNameInRow="Light_Source" msprop:Generator_ColumnVarNameInTable="columnLight_Source" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Plaques" msprop:Generator_UserColumnName="Plaques" msprop:Generator_ColumnPropNameInTable="PlaquesColumn" msprop:Generator_ColumnPropNameInRow="Plaques" msprop:Generator_ColumnVarNameInTable="columnPlaques" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Notes" msprop:Generator_UserColumnName="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4095" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Colour_x0020_Target" msprop:Generator_UserColumnName="Colour Target" msprop:Generator_ColumnPropNameInTable="Colour_TargetColumn" msprop:Generator_ColumnPropNameInRow="Colour_Target" msprop:Generator_ColumnVarNameInTable="columnColour_Target" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pellet_x0020_Size" msprop:Generator_UserColumnName="Pellet Size" msprop:Generator_ColumnPropNameInTable="Pellet_SizeColumn" msprop:Generator_ColumnPropNameInRow="Pellet_Size" msprop:Generator_ColumnVarNameInTable="columnPellet_Size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Heat_x0020_Stability" msprop:Generator_UserColumnName="Heat Stability" msprop:Generator_ColumnPropNameInTable="Heat_StabilityColumn" msprop:Generator_ColumnPropNameInRow="Heat_Stability" msprop:Generator_ColumnVarNameInTable="columnHeat_Stability" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sample_x0020_Quantity" msprop:Generator_UserColumnName="Sample Quantity" msprop:Generator_ColumnPropNameInTable="Sample_QuantityColumn" msprop:Generator_ColumnPropNameInRow="Sample_Quantity" msprop:Generator_ColumnVarNameInTable="columnSample_Quantity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Light_x0020_Fastness" msprop:Generator_UserColumnName="Light Fastness" msprop:Generator_ColumnPropNameInTable="Light_FastnessColumn" msprop:Generator_ColumnPropNameInRow="Light_Fastness" msprop:Generator_ColumnVarNameInTable="columnLight_Fastness" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Masterbatch_x0020_Ref_x0020_One" msprop:Generator_UserColumnName="Masterbatch Ref One" msprop:Generator_ColumnPropNameInTable="Masterbatch_Ref_OneColumn" msprop:Generator_ColumnPropNameInRow="Masterbatch_Ref_One" msprop:Generator_ColumnVarNameInTable="columnMasterbatch_Ref_One" type="xs:string" minOccurs="0" />
+              <xs:element name="Masterbatch_x0020_Ref_x0020_Two" msprop:Generator_UserColumnName="Masterbatch Ref Two" msprop:Generator_ColumnPropNameInTable="Masterbatch_Ref_TwoColumn" msprop:Generator_ColumnPropNameInRow="Masterbatch_Ref_Two" msprop:Generator_ColumnVarNameInTable="columnMasterbatch_Ref_Two" type="xs:string" minOccurs="0" />
+              <xs:element name="Let_x0020_Down_x0020_Rate_x0020_" msprop:Generator_UserColumnName="Let Down Rate " msprop:Generator_ColumnPropNameInTable="Let_Down_Rate_Column" msprop:Generator_ColumnPropNameInRow="Let_Down_Rate_" msprop:Generator_ColumnVarNameInTable="columnLet_Down_Rate_" type="xs:string" minOccurs="0" />
+              <xs:element name="Let_x0020_Down_x0020_Rate_x0020_Received_x0020_One" msprop:Generator_UserColumnName="Let Down Rate Received One" msprop:Generator_ColumnPropNameInTable="Let_Down_Rate_Received_OneColumn" msprop:Generator_ColumnPropNameInRow="Let_Down_Rate_Received_One" msprop:Generator_ColumnVarNameInTable="columnLet_Down_Rate_Received_One" type="xs:string" minOccurs="0" />
+              <xs:element name="Let_x0020_Down_x0020_Rate_x0020_Received_x0020_Two" msprop:Generator_UserColumnName="Let Down Rate Received Two" msprop:Generator_ColumnPropNameInTable="Let_Down_Rate_Received_TwoColumn" msprop:Generator_ColumnPropNameInRow="Let_Down_Rate_Received_Two" msprop:Generator_ColumnVarNameInTable="columnLet_Down_Rate_Received_Two" type="xs:string" minOccurs="0" />
+              <xs:element name="Light_x0020_Fastness_x0020_Received_x0020_" msprop:Generator_UserColumnName="Light Fastness Received " msprop:Generator_ColumnPropNameInTable="Light_Fastness_Received_Column" msprop:Generator_ColumnPropNameInRow="Light_Fastness_Received_" msprop:Generator_ColumnVarNameInTable="columnLight_Fastness_Received_" type="xs:string" minOccurs="0" />
+              <xs:element name="Heat_x0020_Stability_x0020_Received" msprop:Generator_UserColumnName="Heat Stability Received" msprop:Generator_ColumnPropNameInTable="Heat_Stability_ReceivedColumn" msprop:Generator_ColumnPropNameInRow="Heat_Stability_Received" msprop:Generator_ColumnVarNameInTable="columnHeat_Stability_Received" type="xs:string" minOccurs="0" />
+              <xs:element name="Date_x0020_Received_x0020_One" msprop:Generator_UserColumnName="Date Received One" msprop:Generator_ColumnPropNameInTable="Date_Received_OneColumn" msprop:Generator_ColumnPropNameInRow="Date_Received_One" msprop:Generator_ColumnVarNameInTable="columnDate_Received_One" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Date_x0020_Received_x0020_Two" msprop:Generator_UserColumnName="Date Received Two" msprop:Generator_ColumnPropNameInTable="Date_Received_TwoColumn" msprop:Generator_ColumnPropNameInRow="Date_Received_Two" msprop:Generator_ColumnVarNameInTable="columnDate_Received_Two" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Match_x0020_Status_x0020_One" msprop:Generator_UserColumnName="Match Status One" msprop:Generator_ColumnPropNameInTable="Match_Status_OneColumn" msprop:Generator_ColumnPropNameInRow="Match_Status_One" msprop:Generator_ColumnVarNameInTable="columnMatch_Status_One" type="xs:string" minOccurs="0" />
+              <xs:element name="Match_x0020_Status_x0020_Two" msprop:Generator_UserColumnName="Match Status Two" msprop:Generator_ColumnPropNameInTable="Match_Status_TwoColumn" msprop:Generator_ColumnPropNameInRow="Match_Status_Two" msprop:Generator_ColumnVarNameInTable="columnMatch_Status_Two" type="xs:string" minOccurs="0" />
+              <xs:element name="Purchasing_x0020_Notes_x0020_One" msprop:Generator_UserColumnName="Purchasing Notes One" msprop:Generator_ColumnPropNameInTable="Purchasing_Notes_OneColumn" msprop:Generator_ColumnPropNameInRow="Purchasing_Notes_One" msprop:Generator_ColumnVarNameInTable="columnPurchasing_Notes_One" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4095" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Purchasing_x0020_Notes_x0020_Two" msprop:Generator_UserColumnName="Purchasing Notes Two" msprop:Generator_ColumnPropNameInTable="Purchasing_Notes_TwoColumn" msprop:Generator_ColumnPropNameInRow="Purchasing_Notes_Two" msprop:Generator_ColumnVarNameInTable="columnPurchasing_Notes_Two" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4095" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Additional_x0020_Notes_x0020_One" msprop:Generator_UserColumnName="Additional Notes One" msprop:Generator_ColumnPropNameInTable="Additional_Notes_OneColumn" msprop:Generator_ColumnPropNameInRow="Additional_Notes_One" msprop:Generator_ColumnVarNameInTable="columnAdditional_Notes_One" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4095" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Additional_x0020_Notes_x0020_Two" msprop:Generator_UserColumnName="Additional Notes Two" msprop:Generator_ColumnPropNameInTable="Additional_Notes_TwoColumn" msprop:Generator_ColumnPropNameInRow="Additional_Notes_Two" msprop:Generator_ColumnVarNameInTable="columnAdditional_Notes_Two" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4095" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Multiple_x0020_Suppliers" msprop:Generator_UserColumnName="Multiple Suppliers" msprop:Generator_ColumnPropNameInTable="Multiple_SuppliersColumn" msprop:Generator_ColumnPropNameInRow="Multiple_Suppliers" msprop:Generator_ColumnVarNameInTable="columnMultiple_Suppliers" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
