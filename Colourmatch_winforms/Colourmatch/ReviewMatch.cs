@@ -28,161 +28,302 @@ namespace Colourmatch_winforms
 
         private void ReviewMatch_Load(object sender, EventArgs e)
         {
-            SetDropdownList(pReceivedBy_Box, SQLManager.SQLSelectSetDropDown_ReceivedBy);
-            SetDropdownList(pHeatStabilityReceived_Box, SQLManager.SQLSelectSetDropDown_HeatStability);
-            SetDropdownList(pLightFastnessReceived_Box, SQLManager.SQLSelectSetDropDown_LightFastness);
-            SetDropdownList(pSupplier1_Box, SQLManager.SQLSelectSetDropDown_Supplier);
-            SetDropdownList(sColour_Box, SQLManager.SelectSQLColour);
-            SetDropdownList(sProcess_Box, SQLManager.SelectSQLProcess);
-            SetDropdownList(sMouldingMaterial_Box, SQLManager.SelectSQLMouldingMaterial);
-            SetDropdownList(sSalesContact_Box, SQLManager.SelectSalesContact);
-            SetDropdownList(sColourPrefix2_Box, SQLManager.SelectSQLColourPrefix);
-            SetDropdownList(sCustomer_Box, SQLManager.SelectSQLCustomers);
-            SetDropdownList(pProcessedBy_Box, SQLManager.SelectSQLPurchasingContact);
-            SetDropdownList(pMatchStatus_Box, SQLManager.SelectSQLMatchStatus);
-            SetDropdownList(pMatchStatus2_Box, SQLManager.SelectSQLMatchStatus);
-            SetDropdownList(pReceivedBy2_Box, SQLManager.SQLSelectSetDropDown_ReceivedBy);
-            SetDropdownList(pLightFastnessReceived2_Box, SQLManager.SQLSelectSetDropDown_LightFastness);
-            SetDropdownList(pHeatStabilityReceived2_Box, SQLManager.SQLSelectSetDropDown_HeatStability);
-            SetDropdownList(pSupplier2_Box, SQLManager.SQLSelectSetDropDown_Supplier);
+            List<Tuple<System.Windows.Forms.ComboBox, string>> dropdownLists = new List<Tuple<System.Windows.Forms.ComboBox, string>>
+            {
+                Tuple.Create(pReceivedBy_Box, SQLManager.SQLSelectSetDropDown_ReceivedBy),
+                Tuple.Create(pHeatStabilityReceived_Box, SQLManager.SQLSelectSetDropDown_HeatStability),
+                Tuple.Create(pLightFastnessReceived_Box, SQLManager.SQLSelectSetDropDown_LightFastness),
+                Tuple.Create(pSupplier1_Box, SQLManager.SQLSelectSetDropDown_Supplier),
+                Tuple.Create(sColour_Box, SQLManager.SelectSQLColour),
+                Tuple.Create(sProcess_Box, SQLManager.SelectSQLProcess),
+                Tuple.Create(sMouldingMaterial_Box, SQLManager.SelectSQLMouldingMaterial),
+                Tuple.Create(sSalesContact_Box, SQLManager.SelectSalesContact),
+                Tuple.Create(sColourPrefix2_Box, SQLManager.SelectSQLColourPrefix),
+                Tuple.Create(sCustomer_Box, SQLManager.SelectSQLCustomers),
+                Tuple.Create(pProcessedBy_Box, SQLManager.SelectSQLPurchasingContact),
+                Tuple.Create(pMatchStatus_Box, SQLManager.SelectSQLMatchStatus),
+                Tuple.Create(pMatchStatus2_Box, SQLManager.SelectSQLMatchStatus),
+                Tuple.Create(pReceivedBy2_Box, SQLManager.SQLSelectSetDropDown_ReceivedBy),
+                Tuple.Create(pHeatStabilityReceived2_Box, SQLManager.SQLSelectSetDropDown_HeatStability),
+                Tuple.Create(pSupplier2_Box, SQLManager.SQLSelectSetDropDown_Supplier)
+            };
+
+            SetDropdownLists(dropdownLists);
         }
+
+        private void SetDropdownLists(List<Tuple<System.Windows.Forms.ComboBox, string>> dropdownLists)
+        {
+            foreach (Tuple<System.Windows.Forms.ComboBox, string> dropdownlist in dropdownLists)
+            {
+                SetDropdownList(dropdownlist.Item1, dropdownlist.Item2);
+            }
+        }
+
+
+        //private void SetIndexValues(string MatchNo)
+        //{
+        //    try
+        //    {
+        //        string SQLExtract = SQLManager.SQLSelectExtract(MatchNo);
+
+        //        using (var conn = new SqlConnection(ConnectionManager.ConnectionString))
+        //        {
+        //            using (var command = new SqlCommand(SQLExtract, conn))
+        //            {
+        //                conn.Open();
+        //                var reader = command.ExecuteReader();
+
+        //                while (reader.Read())
+        //                {
+        //                    List<Tuple<string, int>> TextboxData = new List<Tuple<string, int>>
+        //                    {
+        //                        Tuple.Create(sMatchRequestNo_Box.Text, 1),
+        //                        Tuple.Create( sMatchStrokeNo_Box.Text, 2),
+        //                        Tuple.Create(sCustomerContact_Box.Text, 7),
+        //                        Tuple.Create(sProjectReference_Box.Text, 8),
+        //                        Tuple.Create(sLightSource_Box.Text, 14),
+        //                        Tuple.Create(sPlaques_Box.Text, 15),
+        //                        Tuple.Create(sSalesNotes_Box.Text, 16),
+        //                        Tuple.Create(sColourTarget_Box.Text, 17),
+        //                        Tuple.Create(sPelletSize_Box.Text, 18),
+        //                        Tuple.Create(sHeatStability_Box.Text, 19),
+        //                        Tuple.Create(sSampleQuantity_Box.Text, 20),
+        //                        Tuple.Create(sLightFastness_Box.Text,21),
+        //                        Tuple.Create(sAdditionRate_Box.Text, 22),
+        //                        Tuple.Create( sSalesContact_Box.Text, 5),
+        //                        Tuple.Create(sCustomer_Box.Text, 6),
+        //                        Tuple.Create(sProcess_Box.Text, 9),
+        //                        Tuple.Create(sMouldingMaterial_Box.Text, 10),
+        //                        Tuple.Create(sColour_Box.Text,11),
+        //                        Tuple.Create(sColourPrefix1_Box.Text,12),
+        //                        Tuple.Create(sColourPrefix2_Box.Text, 13),
+        //                        Tuple.Create(sSampleType_Box.Text, 23)
+
+        //                };
+        //                    //Adds the values to the review match form
+        //                    //Sales Form - Textboxes
+        //                    sMatchRequestNo_Box.Text = Convert.ToString(reader[1]);
+        //                    sMatchStrokeNo_Box.Text = Convert.ToString(reader[2]);
+        //                    sCustomerContact_Box.Text = Convert.ToString(reader[7]);
+        //                    sProjectReference_Box.Text = Convert.ToString(reader[8]);
+        //                    sLightSource_Box.Text = Convert.ToString(reader[14]);
+        //                    sPlaques_Box.Text = Convert.ToString(reader[15]);
+        //                    sSalesNotes_Box.Text = Convert.ToString(reader[16]);
+        //                    sColourTarget_Box.Text = Convert.ToString(reader[17]);
+        //                    sPelletSize_Box.Text = Convert.ToString(reader[18]);
+        //                    sHeatStability_Box.Text = Convert.ToString(reader[19]);
+        //                    sSampleQuantity_Box.Text = Convert.ToString(reader[20]);
+        //                    sLightFastness_Box.Text = Convert.ToString(reader[21]);
+        //                    sAdditionRate_Box.Text = Convert.ToString(reader[22]);
+        //                    //Comboboxes
+        //                    sSalesContact_Box.Text = Convert.ToString(reader[5]);
+        //                    sCustomer_Box.Text = Convert.ToString(reader[6]);
+        //                    sProcess_Box.Text = Convert.ToString(reader[9]);
+        //                    sMouldingMaterial_Box.Text = Convert.ToString(reader[10]);
+        //                    sColour_Box.Text = Convert.ToString(reader[11]);
+        //                    sColourPrefix1_Box.Text = Convert.ToString(reader[12]);
+        //                    sColourPrefix2_Box.Text = Convert.ToString(reader[13]);
+        //                    sSampleType_Box.Text = Convert.ToString(reader[23]);
+
+        //                    //Purchasing Tab - Sales Information - Textboxes
+        //                    psMatchRequestNo_Box.Text = Convert.ToString(reader[1]);
+        //                    psMatchStrokeNo_Box.Text = Convert.ToString(reader[2]);
+        //                    psCustomerContact_Box.Text = Convert.ToString(reader[7]);
+        //                    psProjectReference_Box.Text = Convert.ToString(reader[8]);
+        //                    psLightSource_Box.Text = Convert.ToString(reader[14]);
+        //                    psPlaques_Box.Text = Convert.ToString(reader[15]);
+        //                    psColourTarget_Box.Text = Convert.ToString(reader[17]);
+        //                    psPelletSize_Box.Text = Convert.ToString(reader[18]);
+        //                    psHeatStability_Box.Text = Convert.ToString(reader[19]);
+        //                    psSampleQuantity_Box.Text = Convert.ToString(reader[20]);
+        //                    psLightFastness_Box.Text = Convert.ToString(reader[21]);
+        //                    psAdditionRate_Box.Text = Convert.ToString(reader[22]);
+        //                    //ComboBoxes
+        //                    psSalesContact_Box.Text = Convert.ToString(reader[5]);
+        //                    psCustomer_Box.Text = Convert.ToString(reader[6]);
+        //                    psProcess_Box.Text = Convert.ToString(reader[9]);
+        //                    psMouldingMaterial_Box.Text = Convert.ToString(reader[10]);
+        //                    psColour_Box.Text = Convert.ToString(reader[11]);
+        //                    psColourPrefix1_Box.Text = Convert.ToString(reader[12]);
+        //                    psColourPrefix2_Box.Text = Convert.ToString(reader[13]);
+        //                    psSampleType_Box.Text = Convert.ToString(reader[23]);
+
+        //                    //Purchasing Form
+        //                    pMasterbatchReference_Box.Text = Convert.ToString(reader[27]);
+        //                    pAdditionRateReceived_Box.Text = Convert.ToString(reader[28]);
+        //                    pLightFastnessReceived_Box.Text = Convert.ToString(reader[29]);
+        //                    pHeatStabilityReceived_Box.Text = Convert.ToString(reader[30]);
+        //                    pMatchStatus_Box.Text = Convert.ToString(reader[32]);
+        //                    pPurchasingNotes_Box.Text = Convert.ToString(reader[33]);
+        //                    pSupplier1_Box.Text = Convert.ToString(reader[35]);
+        //                    //pMultipleSuppliers_Checkbox.Checked = Convert.ToBoolean(reader[37]);
+        //                    pReceivedBy_Box.Text = Convert.ToString(reader[38]);
+        //                    pProcessedBy_Box.Text = Convert.ToString(reader[39]);
+        //                    pSupplier2_Box.Text = Convert.ToString(reader[40]);
+        //                    pReceivedBy2_Box.Text = Convert.ToString(reader[42]);
+        //                    pMasterbatchRef2_Box.Text = Convert.ToString(reader[43]);
+        //                    pHeatStabilityReceived2_Box.Text = Convert.ToString(reader[45]);
+        //                    pAdditionRateReceived2_Box.Text = Convert.ToString(reader[46]);
+        //                    pLightFastnessReceived2_Box.Text = Convert.ToString(reader[47]);
+        //                    pMatchStatus2_Box.Text = Convert.ToString(reader[48]);
+        //                    pSalesNotes_Box.Text = Convert.ToString(reader[16]);
+
+        //                    //Handle Date Formats
+        //                    if (reader[3] != System.DBNull.Value)
+        //                    {
+        //                        sDate_Box.Value = Convert.ToDateTime(reader[3]);
+        //                        psDate_Box.Value = Convert.ToDateTime(reader[3]);
+        //                    }
+        //                    else
+        //                    {
+        //                        sDate_Box.Text = string.Empty;
+        //                        psDate_Box.Text = string.Empty;
+        //                    }
+        //                    if (reader[4] != System.DBNull.Value)
+        //                    {
+        //                        sDateRequired_Box.Value = Convert.ToDateTime(reader[4]);
+        //                        psDateRequired_Box.Value = Convert.ToDateTime(reader[4]);
+        //                    }
+        //                    else
+        //                    {
+        //                        sDateRequired_Box.Text = string.Empty;
+        //                        psDateRequired_Box.Text = string.Empty;
+        //                    }
+        //                    if (reader[31] != System.DBNull.Value)
+        //                    {
+        //                        pDateReceived_Box.Value = Convert.ToDateTime(reader[31]);
+        //                    }
+        //                    else
+        //                    {
+        //                        pDateReceived_Box.Text = string.Empty;
+        //                    }
+        //                    if (reader[36] != System.DBNull.Value)
+        //                    {
+        //                        pDateConfirmed1_Box.Value = Convert.ToDateTime(reader[36]);
+        //                        sDateConfirmed1_Box.Value = Convert.ToDateTime(reader[36]);
+        //                    }
+        //                    else
+        //                    {
+        //                        pDateConfirmed1_Box.Text = string.Empty;
+        //                        sDateConfirmed1_Box.Text = string.Empty;
+        //                    }
+        //                    if (reader[49] != System.DBNull.Value)
+        //                    {
+        //                        pDateConfirmed2_Box.Value = Convert.ToDateTime(reader[49]);
+        //                        sDateConfirmed2_Box.Value = Convert.ToDateTime(reader[49]);
+        //                    }
+        //                    else
+        //                    {
+        //                        pDateConfirmed2_Box.Text = string.Empty;
+        //                        sDateConfirmed2_Box.Text = string.Empty;
+        //                    }
+        //                    if (reader[44] != System.DBNull.Value)
+        //                    {
+        //                        pDateReceived2_Box.Value = Convert.ToDateTime(reader[44]);
+        //                    }
+        //                    else
+        //                    {
+        //                        pDateReceived2_Box.Text = string.Empty;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //    }
+        //}
 
         private void SetIndexValues(string MatchNo)
         {
+
             try
             {
                 string SQLExtract = SQLManager.SQLSelectExtract(MatchNo);
+
                 using (var conn = new SqlConnection(ConnectionManager.ConnectionString))
                 {
                     using (var command = new SqlCommand(SQLExtract, conn))
                     {
                         conn.Open();
                         var reader = command.ExecuteReader();
+
+                        List<Tuple<System.Windows.Forms.TextBox, int>> SalesTextBoxData = new List<Tuple<System.Windows.Forms.TextBox, int>>
+                        {
+                            Tuple.Create(sMatchRequestNo_Box, 1),
+                            Tuple.Create(sMatchStrokeNo_Box, 2),
+                            Tuple.Create(sCustomerContact_Box, 7),
+                            Tuple.Create(sProjectReference_Box, 8),
+                            Tuple.Create(sLightSource_Box, 14),
+                            Tuple.Create(sPlaques_Box, 15),
+                            //Tuple.Create(sSalesNotes_Box, 16),
+                            Tuple.Create(sColourTarget_Box, 17),
+                            Tuple.Create(sPelletSize_Box, 18),
+                            Tuple.Create(sHeatStability_Box, 19),
+                            Tuple.Create(sSampleQuantity_Box, 20),
+                            Tuple.Create(sLightFastness_Box,21),
+                            Tuple.Create(sAdditionRate_Box, 22),
+                        };
+
+                        List<Tuple<System.Windows.Forms.ComboBox, int>> SakesComboBoxData = new List<Tuple<System.Windows.Forms.ComboBox, int>>
+                        {
+                            Tuple.Create(sSalesContact_Box, 5),
+                            Tuple.Create(sCustomer_Box, 6),
+                            Tuple.Create(sProcess_Box, 9),
+                            Tuple.Create(sMouldingMaterial_Box, 10),
+                            Tuple.Create(sColour_Box, 11),
+                            Tuple.Create(sColourPrefix1_Box,12),
+                            Tuple.Create(sColourPrefix2_Box, 13),
+                            Tuple.Create(sSampleType_Box, 23)
+
+                        };
+
+
+                        List<Tuple<string, int>> PurchasingData = new List<Tuple<string, int>>
+                        {
+                            Tuple.Create(psMatchRequestNo_Box.Text, 1),
+                            Tuple.Create(psMatchStrokeNo_Box.Text, 2),
+                            Tuple.Create(psCustomerContact_Box.Text, 7),
+                            Tuple.Create(psProjectReference_Box.Text, 8),
+                            Tuple.Create(psLightSource_Box.Text, 14),
+                            Tuple.Create(psPlaques_Box.Text, 15),
+                            Tuple.Create(psColourTarget_Box.Text, 17),
+                            Tuple.Create(psPelletSize_Box.Text, 18),
+                            Tuple.Create(psHeatStability_Box.Text, 19),
+                            Tuple.Create(psSampleQuantity_Box.Text, 20),
+                            Tuple.Create(psLightFastness_Box.Text, 21),
+                            Tuple.Create(psAdditionRate_Box.Text, 22),
+                            Tuple.Create(psSalesContact_Box.Text, 5),
+                            Tuple.Create(psCustomer_Box.Text, 6),
+                            Tuple.Create(psProcess_Box.Text, 9),
+                            Tuple.Create(psMouldingMaterial_Box.Text, 10),
+                            Tuple.Create(psColour_Box.Text, 11),
+                            Tuple.Create(psColourPrefix1_Box.Text, 12),
+                            Tuple.Create(psColourPrefix2_Box.Text, 13),
+                            Tuple.Create(psSampleType_Box.Text, 23),
+                            Tuple.Create(pMasterbatchReference_Box.Text, 27),
+                            Tuple.Create(pAdditionRateReceived_Box.Text, 28),
+                            Tuple.Create(pLightFastnessReceived_Box.Text, 29),
+                            Tuple.Create(pHeatStabilityReceived_Box.Text, 30),
+                            Tuple.Create(pMatchStatus_Box.Text, 32),
+                            Tuple.Create(pPurchasingNotes_Box.Text , 33),
+                            Tuple.Create(pSupplier1_Box.Text , 35),
+                            Tuple.Create(pReceivedBy_Box.Text , 38),
+                            Tuple.Create(pProcessedBy_Box.Text , 39),
+                            Tuple.Create(pSupplier2_Box.Text , 40),
+                            Tuple.Create(pReceivedBy2_Box.Text , 42),
+                            Tuple.Create(pMasterbatchRef2_Box.Text , 43),
+                            Tuple.Create(pHeatStabilityReceived2_Box.Text , 45),
+                            Tuple.Create(pAdditionRateReceived2_Box.Text , 46),
+                            Tuple.Create(pLightFastnessReceived2_Box.Text , 47),
+                            Tuple.Create(pMatchStatus2_Box.Text , 48),
+                            Tuple.Create(pSalesNotes_Box.Text , 16)
+                        };
+
                         while (reader.Read())
                         {
-                            //Adds the values to the review match form
-                            //Sales Form
-                            sMatchRequestNo_Box.Text = Convert.ToString(reader[1]);
-                            sMatchStrokeNo_Box.Text = Convert.ToString(reader[2]);
-                            sSalesContact_Box.Text = Convert.ToString(reader[5]);
-                            sCustomer_Box.Text = Convert.ToString(reader[6]);
-                            sCustomerContact_Box.Text = Convert.ToString(reader[7]);
-                            sProjectReference_Box.Text = Convert.ToString(reader[8]);
-                            sProcess_Box.Text = Convert.ToString(reader[9]);
-                            sMouldingMaterial_Box.Text = Convert.ToString(reader[10]);
-                            sColour_Box.Text = Convert.ToString(reader[11]);
-                            sColourPrefix1_Box.Text = Convert.ToString(reader[12]);
-                            sColourPrefix2_Box.Text = Convert.ToString(reader[13]);
-                            sLightSource_Box.Text = Convert.ToString(reader[14]);
-                            sPlaques_Box.Text = Convert.ToString(reader[15]);
-                            sSalesNotes_Box.Text = Convert.ToString(reader[16]);
-                            sColourTarget_Box.Text = Convert.ToString(reader[17]);
-                            sPelletSize_Box.Text = Convert.ToString(reader[18]);
-                            sHeatStability_Box.Text = Convert.ToString(reader[19]);
-                            sSampleQuantity_Box.Text = Convert.ToString(reader[20]);
-                            sLightFastness_Box.Text = Convert.ToString(reader[21]);
-                            sAdditionRate_Box.Text = Convert.ToString(reader[22]);
-                            sSampleType_Box.Text = Convert.ToString(reader[23]);
-                            
-                            //Purchasing Tab - Sales Information
-                            psMatchRequestNo_Box.Text = Convert.ToString(reader[1]);
-                            psMatchStrokeNo_Box.Text = Convert.ToString(reader[2]);
-                            psSalesContact_Box.Text = Convert.ToString(reader[5]);
-                            psCustomer_Box.Text = Convert.ToString(reader[6]);
-                            psCustomerContact_Box.Text = Convert.ToString(reader[7]);
-                            psProjectReference_Box.Text = Convert.ToString(reader[8]);
-                            psProcess_Box.Text = Convert.ToString(reader[9]);
-                            psMouldingMaterial_Box.Text = Convert.ToString(reader[10]);
-                            psColour_Box.Text = Convert.ToString(reader[11]);
-                            psColourPrefix1_Box.Text = Convert.ToString(reader[12]);
-                            psColourPrefix2_Box.Text = Convert.ToString(reader[13]);
-                            psLightSource_Box.Text = Convert.ToString(reader[14]);
-                            psPlaques_Box.Text = Convert.ToString(reader[15]);
-                            psColourTarget_Box.Text = Convert.ToString(reader[17]);
-                            psPelletSize_Box.Text = Convert.ToString(reader[18]);
-                            psHeatStability_Box.Text = Convert.ToString(reader[19]);
-                            psSampleQuantity_Box.Text = Convert.ToString(reader[20]);
-                            psLightFastness_Box.Text = Convert.ToString(reader[21]);
-                            psAdditionRate_Box.Text = Convert.ToString(reader[22]);
-                            psSampleType_Box.Text = Convert.ToString(reader[23]);
-
-                            //Purchasing Form
-                            pMasterbatchReference_Box.Text = Convert.ToString(reader[27]);
-                            pAdditionRateReceived_Box.Text = Convert.ToString(reader[28]);
-                            pLightFastnessReceived_Box.Text = Convert.ToString(reader[29]);
-                            pHeatStabilityReceived_Box.Text = Convert.ToString(reader[30]);
-                            pMatchStatus_Box.Text = Convert.ToString(reader[32]);
-                            pPurchasingNotes_Box.Text = Convert.ToString(reader[33]);
-                            pSupplier1_Box.Text = Convert.ToString(reader[35]);
-                            //pMultipleSuppliers_Checkbox.Checked = Convert.ToBoolean(reader[37]);
-                            pReceivedBy_Box.Text = Convert.ToString(reader[38]);
-                            pProcessedBy_Box.Text = Convert.ToString(reader[39]);
-                            pSupplier2_Box.Text = Convert.ToString(reader[40]);
-                            pReceivedBy2_Box.Text = Convert.ToString(reader[42]);
-                            pMasterbatchRef2_Box.Text = Convert.ToString(reader[43]);
-                            pHeatStabilityReceived2_Box.Text = Convert.ToString(reader[45]);
-                            pAdditionRateReceived2_Box.Text = Convert.ToString(reader[46]);
-                            pLightFastnessReceived2_Box.Text = Convert.ToString(reader[47]);
-                            pMatchStatus2_Box.Text = Convert.ToString(reader[48]);
-                            pSalesNotes_Box.Text = Convert.ToString(reader[16]); 
-
-                            //Handle Date Formats
-                            if (reader[3] != System.DBNull.Value)
-                            {
-                                sDate_Box.Value = Convert.ToDateTime(reader[3]);
-                                psDate_Box.Value = Convert.ToDateTime(reader[3]);
-                            }
-                            else
-                            {
-                                sDate_Box.Text = string.Empty;
-                                psDate_Box.Text = string.Empty;
-                            }
-                            if(reader[4] != System.DBNull.Value)
-                            {
-                                sDateRequired_Box.Value = Convert.ToDateTime(reader[4]);
-                                psDateRequired_Box.Value = Convert.ToDateTime(reader[4]);
-                            }
-                            else
-                            {
-                                sDateRequired_Box.Text = string.Empty;
-                                psDateRequired_Box.Text = string.Empty;
-                            }
-                            if (reader[31] != System.DBNull.Value)
-                            {
-                                pDateReceived_Box.Value = Convert.ToDateTime(reader[31]);
-                            }
-                            else
-                            {
-                                pDateReceived_Box.Text = string.Empty;
-                            }
-                            if (reader[36] != System.DBNull.Value)
-                            {
-                                pDateConfirmed1_Box.Value = Convert.ToDateTime(reader[36]);
-                                sDateConfirmed1_Box.Value = Convert.ToDateTime(reader[36]);
-                            }
-                            else
-                            {
-                                pDateConfirmed1_Box.Text = string.Empty;
-                                sDateConfirmed1_Box.Text = string.Empty;
-                            }
-                            if (reader[49] != System.DBNull.Value)
-                            {
-                                pDateConfirmed2_Box.Value = Convert.ToDateTime(reader[49]);
-                                sDateConfirmed2_Box.Value = Convert.ToDateTime(reader[49]);
-                            }
-                            else
-                            {
-                                pDateConfirmed2_Box.Text = string.Empty;
-                                sDateConfirmed2_Box.Text = string.Empty;
-                            }
-                            if (reader[44] != System.DBNull.Value)
-                            {
-                                pDateReceived2_Box.Value = Convert.ToDateTime(reader[44]);
-                            }
-                            else
-                            {
-                                pDateReceived2_Box.Text = string.Empty;
-                            }
+                            SetTextBoxValues(reader, SalesData, PurchasingData);
                         }
                     }
                 }
@@ -190,6 +331,19 @@ namespace Colourmatch_winforms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void SetTextBoxValues(SqlDataReader reader, List<Tuple<string, int>> salesData, List<Tuple<string, int>> purchasingData)
+        {
+            foreach (Tuple<string, int> data in salesData)
+            {
+                data.Item1 = Convert.ToString(reader[data.Item2]);
+            }
+            foreach(Tuple<string, int> data in purchasingData )
+            {
+                data.Item1 = Convert.ToString(reader[data.Item2]);
             }
         }
 
@@ -335,7 +489,7 @@ namespace Colourmatch_winforms
             }
             return salesInfo;
         }
-               
+
         //Set values on Process box change
         public void sProcess_Box_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -351,7 +505,7 @@ namespace Colourmatch_winforms
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.ToString());
-            
+
             }
         }
 
@@ -361,7 +515,7 @@ namespace Colourmatch_winforms
             {
                 FormFunctions.ChangeMaterialValues(sMouldingMaterial_Box, sSampleQuantity_Box);
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }

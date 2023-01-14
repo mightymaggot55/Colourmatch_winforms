@@ -38,18 +38,30 @@ namespace Colourmatch_winforms
             {
                 Stopwatch sw = new Stopwatch();
                 sw.Restart();
-                SetDropdownList(sColour_Box, SQLManager.SelectSQLColour);
-                SetDropdownList(sProcess_Box, SQLManager.SelectSQLProcess);
-                SetDropdownList(sMouldingMaterial_Box, SQLManager.SelectSQLMouldingMaterial);
-                SetDropdownList(sSalesContact_Box, SQLManager.SelectSalesContact);
-                SetDropdownList(sColourPrefix2_Box, SQLManager.SelectSQLColourPrefix);
-                SetDropdownList(sCustomer_Box, SQLManager.SelectSQLCustomers);
+                List<Tuple<System.Windows.Forms.ComboBox, string>> dropdownLists = new List<Tuple<System.Windows.Forms.ComboBox, string>>
+                {
+                    Tuple.Create(sColour_Box, SQLManager.SelectSQLColour),
+                    Tuple.Create(sProcess_Box, SQLManager.SelectSQLProcess),
+                    Tuple.Create(sMouldingMaterial_Box, SQLManager.SelectSQLMouldingMaterial),
+                    Tuple.Create(sSalesContact_Box, SQLManager.SelectSalesContact),
+                    Tuple.Create(sColourPrefix2_Box, SQLManager.SelectSQLColourPrefix),
+                    Tuple.Create(sCustomer_Box, SQLManager.SelectSQLCustomers)
+                };
+                SetDropdownLists(dropdownLists);
                 sw.Stop();
                 Console.WriteLine(sw.Elapsed);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void SetDropdownLists(List<Tuple<System.Windows.Forms.ComboBox, string>> dropdownlists)
+        {
+            foreach(Tuple<System.Windows.Forms.ComboBox, string> item in dropdownlists)
+            {
+                SetDropdownList(item.Item1, item.Item2);
             }
         }
 
@@ -168,7 +180,7 @@ namespace Colourmatch_winforms
             }
         }
 
-        //private static async Task InitialiseDropdownsAsync()
+        //private async void InitialiseDropdownsAsync()
         //{
         //    try
         //    {
@@ -176,13 +188,13 @@ namespace Colourmatch_winforms
         //        sw.Restart();
         //        Task<Task>[] task = new Task<Task>[];
 
-        //        task[0] = await SetDropdownListAsync(sColour_Box, SQLManager.SelectSQLColour);
-        //        task[1] = await SetDropdownListAsync(sProcess_Box, SQLManager.SelectSQLProcess);
-        //        task[2] = await SetDropdownListAsync(sMouldingMaterial_Box, SQLManager.SelectSQLMouldingMaterial);
-        //        task[3] = await SetDropdownListAsync(sSalesContact_Box, SQLManager.SelectSalesContact);
-        //        task[4] = await SetDropdownListAsync(sColourPrefix2_Box, SQLManager.SelectSQLColourPrefix);
-        //        task[5] = await SetDropdownListAsync(sCustomer_Box, SQLManager.SelectSQLCustomers);
-                                
+        //        await Task.run(() => SetDropdownListAsync(sColour_Box, SQLManager.SelectSQLColour));
+        //        await Task.run(() => SetDropdownListAsync(sProcess_Box, SQLManager.SelectSQLProcess);
+        //        await Task.run(() => SetDropdownListAsync(sMouldingMaterial_Box, SQLManager.SelectSQLMouldingMaterial);
+        //        await Task.run(() => await SetDropdownListAsync(sSalesContact_Box, SQLManager.SelectSalesContact);
+        //        await Task.run(() => SetDropdownListAsync(sColourPrefix2_Box, SQLManager.SelectSQLColourPrefix);
+        //        await Task.run(() => SetDropdownListAsync(sCustomer_Box, SQLManager.SelectSQLCustomers);
+
         //        sw.Stop();
         //        Console.WriteLine(sw.Elapsed);
         //    }
