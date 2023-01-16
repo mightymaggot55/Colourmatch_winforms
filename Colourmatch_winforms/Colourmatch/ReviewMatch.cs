@@ -237,7 +237,6 @@ namespace Colourmatch_winforms
 
         private void SetIndexValues(string MatchNo)
         {
-
             try
             {
                 string SQLExtract = SQLManager.SQLSelectExtract(MatchNo);
@@ -257,7 +256,6 @@ namespace Colourmatch_winforms
                             Tuple.Create(sProjectReference_Box, 8),
                             Tuple.Create(sLightSource_Box, 14),
                             Tuple.Create(sPlaques_Box, 15),
-                            //Tuple.Create(sSalesNotes_Box, 16),
                             Tuple.Create(sColourTarget_Box, 17),
                             Tuple.Create(sPelletSize_Box, 18),
                             Tuple.Create(sHeatStability_Box, 19),
@@ -266,7 +264,7 @@ namespace Colourmatch_winforms
                             Tuple.Create(sAdditionRate_Box, 22),
                         };
 
-                        List<Tuple<System.Windows.Forms.ComboBox, int>> SakesComboBoxData = new List<Tuple<System.Windows.Forms.ComboBox, int>>
+                        List<Tuple<System.Windows.Forms.ComboBox, int>> SalesComboBoxData = new List<Tuple<System.Windows.Forms.ComboBox, int>>
                         {
                             Tuple.Create(sSalesContact_Box, 5),
                             Tuple.Create(sCustomer_Box, 6),
@@ -279,51 +277,64 @@ namespace Colourmatch_winforms
 
                         };
 
-
-                        List<Tuple<string, int>> PurchasingData = new List<Tuple<string, int>>
+                        List<Tuple<System.Windows.Forms.ComboBox, int>> PurchasingComboData = new List<Tuple<System.Windows.Forms.ComboBox, int>>
                         {
-                            Tuple.Create(psMatchRequestNo_Box.Text, 1),
-                            Tuple.Create(psMatchStrokeNo_Box.Text, 2),
-                            Tuple.Create(psCustomerContact_Box.Text, 7),
-                            Tuple.Create(psProjectReference_Box.Text, 8),
-                            Tuple.Create(psLightSource_Box.Text, 14),
-                            Tuple.Create(psPlaques_Box.Text, 15),
-                            Tuple.Create(psColourTarget_Box.Text, 17),
-                            Tuple.Create(psPelletSize_Box.Text, 18),
-                            Tuple.Create(psHeatStability_Box.Text, 19),
-                            Tuple.Create(psSampleQuantity_Box.Text, 20),
-                            Tuple.Create(psLightFastness_Box.Text, 21),
-                            Tuple.Create(psAdditionRate_Box.Text, 22),
-                            Tuple.Create(psSalesContact_Box.Text, 5),
-                            Tuple.Create(psCustomer_Box.Text, 6),
-                            Tuple.Create(psProcess_Box.Text, 9),
-                            Tuple.Create(psMouldingMaterial_Box.Text, 10),
-                            Tuple.Create(psColour_Box.Text, 11),
-                            Tuple.Create(psColourPrefix1_Box.Text, 12),
-                            Tuple.Create(psColourPrefix2_Box.Text, 13),
-                            Tuple.Create(psSampleType_Box.Text, 23),
-                            Tuple.Create(pMasterbatchReference_Box.Text, 27),
-                            Tuple.Create(pAdditionRateReceived_Box.Text, 28),
-                            Tuple.Create(pLightFastnessReceived_Box.Text, 29),
-                            Tuple.Create(pHeatStabilityReceived_Box.Text, 30),
-                            Tuple.Create(pMatchStatus_Box.Text, 32),
-                            Tuple.Create(pPurchasingNotes_Box.Text , 33),
-                            Tuple.Create(pSupplier1_Box.Text , 35),
-                            Tuple.Create(pReceivedBy_Box.Text , 38),
-                            Tuple.Create(pProcessedBy_Box.Text , 39),
-                            Tuple.Create(pSupplier2_Box.Text , 40),
-                            Tuple.Create(pReceivedBy2_Box.Text , 42),
-                            Tuple.Create(pMasterbatchRef2_Box.Text , 43),
-                            Tuple.Create(pHeatStabilityReceived2_Box.Text , 45),
-                            Tuple.Create(pAdditionRateReceived2_Box.Text , 46),
-                            Tuple.Create(pLightFastnessReceived2_Box.Text , 47),
-                            Tuple.Create(pMatchStatus2_Box.Text , 48),
-                            Tuple.Create(pSalesNotes_Box.Text , 16)
+                            Tuple.Create(psSalesContact_Box, 5),
+                            Tuple.Create(psCustomer_Box, 6),
+                            Tuple.Create(psProcess_Box, 9),
+                            Tuple.Create(psMouldingMaterial_Box, 10),
+                            Tuple.Create(psColour_Box, 11),
+                            Tuple.Create(psColourPrefix1_Box, 12),
+                            Tuple.Create(psColourPrefix2_Box, 13),
+                            Tuple.Create(psSampleType_Box, 23),
+                            Tuple.Create(pAdditionRateReceived_Box, 28),
+                            Tuple.Create(pLightFastnessReceived_Box, 29),
+                            Tuple.Create(pHeatStabilityReceived_Box, 30),
+                            Tuple.Create(pMatchStatus_Box, 32),
+                            Tuple.Create(pSupplier1_Box, 35),
+                            Tuple.Create(pReceivedBy_Box, 38),
+                            Tuple.Create(pProcessedBy_Box, 39),
+                            Tuple.Create(pSupplier2_Box, 40),
+                            Tuple.Create(pReceivedBy2_Box, 42),
+                            Tuple.Create(pHeatStabilityReceived2_Box , 45),
+                            Tuple.Create(pAdditionRateReceived2_Box , 46),
+                            Tuple.Create(pLightFastnessReceived2_Box , 47),
+                            Tuple.Create(pMatchStatus2_Box , 48),
+                        };
+
+                        List<Tuple<System.Windows.Forms.TextBox, int>> PurchasingTextData = new List<Tuple<System.Windows.Forms.TextBox, int>>
+                        {
+                            Tuple.Create(pMasterbatchReference_Box, 27),
+                            Tuple.Create(pMasterbatchRef2_Box, 43),
+                            Tuple.Create(psMatchRequestNo_Box, 1),
+                            Tuple.Create(psMatchStrokeNo_Box, 2),
+                            Tuple.Create(psCustomerContact_Box, 7),
+                            Tuple.Create(psProjectReference_Box, 8),
+                            Tuple.Create(psLightSource_Box, 14),
+                            Tuple.Create(psPlaques_Box, 15),
+                            Tuple.Create(psColourTarget_Box, 17),
+                            Tuple.Create(psPelletSize_Box, 18),
+                            Tuple.Create(psHeatStability_Box, 19),
+                            Tuple.Create(psSampleQuantity_Box, 20),
+                            Tuple.Create(psLightFastness_Box, 21),
+                            Tuple.Create(psAdditionRate_Box, 22),
+                        };
+
+                        List <Tuple<System.Windows.Forms.RichTextBox, int>> PurchasingRichTextData = new List<Tuple<System.Windows.Forms.RichTextBox, int>>
+                        {
+                            Tuple.Create(pSalesNotes_Box, 16),
+                            Tuple.Create(pPurchasingNotes_Box, 33)
+
+                        };
+
+                        List<Tuple<System.Windows.Forms.RichTextBox, int>> SalesRichTextData = new List<Tuple<System.Windows.Forms.RichTextBox, int>>
+                        {
+                            Tuple.Create(sSalesNotes_Box, 16)
                         };
 
                         while (reader.Read())
                         {
-                            SetTextBoxValues(reader, SalesData, PurchasingData);
+                            SetTextBoxValues(reader, SalesTextBoxData, PurchasingTextData, SalesComboBoxData, PurchasingComboData, SalesRichTextData, PurchasingRichTextData);
                         }
                     }
                 }
@@ -335,15 +346,31 @@ namespace Colourmatch_winforms
 
         }
 
-        private void SetTextBoxValues(SqlDataReader reader, List<Tuple<string, int>> salesData, List<Tuple<string, int>> purchasingData)
+        private void SetTextBoxValues(SqlDataReader reader, List<Tuple<System.Windows.Forms.TextBox, int>> salesTextData, List<Tuple<System.Windows.Forms.TextBox, int>> purchasingTextData, List<Tuple<System.Windows.Forms.ComboBox, int>> SalesComboData, List<Tuple<System.Windows.Forms.ComboBox, int>> purchasingComboData, List<Tuple<System.Windows.Forms.RichTextBox, int>> salesRichTextData, List<Tuple<System.Windows.Forms.RichTextBox, int>> purchasingRichTextData)
         {
-            foreach (Tuple<string, int> data in salesData)
+            foreach (Tuple<System.Windows.Forms.TextBox, int> data in salesTextData)
             {
-                data.Item1 = Convert.ToString(reader[data.Item2]);
+                data.Item1.Text = Convert.ToString(reader[data.Item2]);
             }
-            foreach(Tuple<string, int> data in purchasingData )
+            foreach(Tuple<System.Windows.Forms.ComboBox, int> data in SalesComboData )
             {
-                data.Item1 = Convert.ToString(reader[data.Item2]);
+                data.Item1.Text = Convert.ToString(reader[data.Item2]);
+            }
+            foreach(Tuple<System.Windows.Forms.RichTextBox, int> data in salesRichTextData)
+            {
+                data.Item1.Text = Convert.ToString(reader[data.Item2]);
+            }
+            foreach(Tuple<System.Windows.Forms.TextBox, int> data in purchasingTextData)
+            {
+                data.Item1.Text = Convert.ToString(reader[data.Item2]);
+            }
+            foreach (Tuple<System.Windows.Forms.ComboBox, int> data in purchasingComboData)
+            {
+                data.Item1.Text = Convert.ToString(reader[data.Item2]);
+            }
+            foreach (Tuple<System.Windows.Forms.RichTextBox, int> data in purchasingRichTextData)
+            {
+                data.Item1.Text = Convert.ToString(reader[data.Item2]);
             }
         }
 
